@@ -1,398 +1,440 @@
 /* CSS Document */
 
-/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
-
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
-
-/**
- * Correct `block` display not defined in IE 8/9.
- */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-    display: block;
+/*----------------PARALLAX IMAGE-----------------*/
+.parallax {
+	min-height: 450px;
+	background: transparent;
+	padding-top: 35px;
 }
-
-/**
- * Correct `inline-block` display not defined in IE 8/9.
- */
-
-audio,
-canvas,
-video {
-    display: inline-block;
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-
-audio:not([controls]) {
-    display: none;
-    height: 0;
-}
-
-/**
- * Address styling not present in IE 8/9.
- */
-
-[hidden] {
-    display: none;
-}
-
-/* ==========================================================================
-   Base
-   ========================================================================== */
-
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-
-html {
-    font-family: sans-serif; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-    -ms-text-size-adjust: 100%; /* 2 */
-}
-
-/**
- * Remove default margin.
- */
 
 body {
-    margin: 0;
+	color: white; /*(default font color for the entire page)*/
+	font-family: 'League Spartan', sans-serif;
+	font-weight: 300; /*(font thickness)*/
 }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
-
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
-
-a:focus {
-    outline: thin dotted;
+/*----------------navigation section-----------------*/
+header {
+	height: 105px; /*(height of nav bar)*/
+	position: fixed; /*(keeps nav bar visible when scrolling)*/
+	width: 100%;
+	top: 0;
+	z-index: 5; /*(ensures nav bar appears in front of other elements)*/
+	font-size: 1em;
+    transition: top 0.2s ease-in-out;
+    background-color: #FFC425;
+    opacity: 0.75;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-
-a:active,
-a:hover {
-    outline: 0;
+/*----------------navigation container-----------------*/
+.nav-container {
+  margin: 0 auto;
 }
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
+/*----------------text-based logo-----------------*/
+.brand {
+    padding: 15px 0 15px 45px;
+    float: left;
+}
 
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
- */
+/*----------------mobile navigation--------------------*/
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2F241D;
+  height: 70px;
+  width: 70px;
+}
+
+/*----------------navigation buttons-----------------*/
+nav {
+  float: right;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  float: left;
+  position: relative;
+}
+nav ul li a,
+nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 105px;
+    background-color: #FFC425;
+    font-family: 'Lilita One', cursive;
+    color: #2F241D;
+    text-decoration: none;
+	font-weight: bold;
+}
+nav ul li a:hover,
+nav ul li a:visited:hover {
+    background-color: darkorange;
+    color: white;
+}
+nav ul li a:not(:only-child):after,
+nav ul li a:visited:not(:only-child):after {
+  padding-left: 4px;
+}
+nav ul li ul li {
+  min-width: 190px;
+}
+nav ul li ul li a {
+  padding: 15px;
+  line-height: 20px;
+}
+.nav-dropdown {
+  position: absolute;
+  display: none;
+  z-index: 5;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}	
+
+a.text:link, a.text:visited {
+    background-color: #68ACF0;
+    color: white;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+}
+a.text:hover, a.text:active {
+    background-color: white;
+    color: black;
+}
+.row a{
+	color: #1e1f32;
+    font-family: 'League Spartan', sans-serif;
+    text-transform: uppercase;
+    padding: .5rem 1rem;
+    padding-right: 2rem;
+    border-radius: 30px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    display: block;
+    width: 175px;
+    letter-spacing: .3px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: initial;
+    background: url(img/arrow.png) #FFC425;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 96%;
+	text-decoration: none;
+}
+.row a:hover{
+	    background-color: #E35625;
+    color: initial;
+	    text-decoration: none;
+    transition: all 0.3s ease-in 0s;
+}
+/*----------------media queries-----------------*/
+
+/*If device width is less than or equal to 800px, then do ...*/
+@media only screen and (max-width: 800px) {
+
+    h2 {
+        font-size: 35px !important;
+    }
+  .nav-mobile {
+    display: block;
+      background-color: white;
+      opacity: 0.75;
+  }
+  nav {
+    width: 100%;
+    padding: 70px 0 15px;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul li {
+    float: none;
+  }
+  nav ul li a {
+    padding: 15px;
+    line-height: 20px;
+    background-color: white;
+    opacity: 0.75;
+  }
+  nav ul li ul li a {
+    padding-left: 30px;
+  }
+
+  .nav-dropdown {
+    position: static;
+  } 
+    
+  .brand {
+	position: absolute;
+	padding-left: 80px;
+	float: left;
+	color: #000000;
+	font-family: sans-serif;
+	font-size: small;
+  }
+	
+	.image2 {
+	cursor:pointer;
+	width: 90%;
+	height: 90%;
+}
+	
+}
+@media screen and (min-width: 800px) {  
+    
+/*-----styles for jquery dropdown menu-----*/
+  .nav-list {
+    display: block !important;
+  }
+}
+
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+}
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #000000;
+  position: absolute;
+  display: block;
+  content: '';
+  transition: all 300ms ease-in-out;
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+/*----------------Main Image-----------------*/
+
+.image1 {
+	width: 100%;
+}
+.container {
+	position: relative;
+    background-image: url(img/main.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+/*----------------Main Content Area(this is where all the content below the navigation bar will go)--*/
+.row {
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0; /*(centers content within the row)*/
+	position: relative;
+	padding: 65px 45px;
+    text-align: center;
+}
+
+article {
+	max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 20px;
+}
 
 h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+	line-height: 1.5;
+	text-transform: uppercase;
+	font-size: 16px;
+    color: lightgray;
 }
 
-/**
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
- */
-
-abbr[title] {
-    border-bottom: 1px dotted;
-}
-
-/**
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
- */
-
-b,
-strong {
-    font-weight: bold;
-}
-
-/**
- * Address styling not present in Safari 5 and Chrome.
- */
-
-dfn {
-    font-style: italic;
-}
-
-/**
- * Address differences between Firefox and other browsers.
- */
-
-hr {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 0;
-}
-
-/**
- * Address styling not present in IE 8/9.
- */
-
-mark {
-    background: #ff0;
-    color: #000;
-}
-
-/**
- * Correct font family set oddly in Safari 5 and Chrome.
- */
-
-code,
-kbd,
-pre,
-samp {
-    font-family: monospace, serif;
-    font-size: 1em;
-}
-
-/**
- * Improve readability of pre-formatted text in all browsers.
- */
-
-pre {
-    white-space: pre-wrap;
-}
-
-/**
- * Set consistent quote types.
- */
-
-q {
-    quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-/**
- * Address inconsistent and variable font size in all browsers.
- */
-
-small {
-    font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sup {
-    top: -0.5em;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-/* ==========================================================================
-   Embedded content
-   ========================================================================== */
-
-/**
- * Remove border when inside `a` element in IE 8/9.
- */
-
-img {
-    border: 0;
-}
-
-/**
- * Correct overflow displayed oddly in IE 9.
- */
-
-svg:not(:root) {
-    overflow: hidden;
-}
-
-/* ==========================================================================
-   Figures
-   ========================================================================== */
-
-/**
- * Address margin not present in IE 8/9 and Safari 5.
- */
-
-figure {
+h2 {
+	font-family: 'Lilita One', cursive;
+    text-align: center;
+    font-size: 55px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #FFC425;
+    background: -webkit-linear-gradient(left,#ff005e,#ff01c9,#a700ff);
+    -webkit-background-clip: text;
     margin: 0;
+    line-height: initial;
 }
 
-/* ==========================================================================
-   Forms
-   ========================================================================== */
-
-/**
- * Define consistent border, margin, and padding.
- */
-
-fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+p {
+	line-height: 1.5;
 }
 
-/**
- * 1. Correct `color` not being inherited in IE 8/9.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
- */
+/*----------------SLIDESHOW-----------------*/
 
-legend {
-    border: 0; /* 1 */
-    padding: 0; /* 2 */
+#slider {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  z-index: 1;
+  position: relative;        
 }
 
-/**
- * 1. Correct font family not being inherited in all browsers.
- * 2. Correct font size not being inherited in all browsers.
- * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
- */
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit; /* 1 */
-    font-size: 100%; /* 2 */
-    margin: 0; /* 3 */
+/* prev / next links */
+.cycle-prev, .cycle-next { 
+  position: absolute;
+  top: 0;
+  width: 30%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  z-index: 800;
+  height: 100%;
+  cursor: pointer; 
+  }
+  
+.cycle-prev { 
+  left: 0;
+  background: url(img/arrowleft.png) 50% 50% no-repeat;
+  }
+  
+.cycle-next { 
+right: 0;
+background: url(img/arrowright.png) 50% 50% no-repeat;
 }
 
-/**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-
-button,
-input {
-    line-height: normal;
+.cycle-prev:hover, .cycle-next:hover { 
+opacity: 1;
+filter: alpha(opacity=70)
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
 
-button,
-select {
-    text-transform: none;
+/* captions below slideshow*/
+#alt-caption {
+    background-color: #2F241D;
+    color: #FFC425;
+    font-family: 'Bitter', serif;
+    font-size: .9em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- */
-
-button,
-html input[type="button"], /* 1 */
-input[type="reset"],
-input[type="submit"] {
-    -webkit-appearance: button; /* 2 */
-    cursor: pointer; /* 3 */
+/*----------------VIDEO-----------------*/
+video {
+    position: relative;
+    width: 100%;    
 }
 
-/**
- * Re-set default cursor for disabled elements.
- */
-
-button[disabled],
-html input[disabled] {
-    cursor: default;
+/*----------------FOOTER-----------------*/
+/*(footer box)*/
+.footer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #E23E41;
+	padding-top: 10px;
+	padding-bottom: 17px;
+}
+/*(footer links)*/
+.footer a {
+	text-decoration: none; /*(nullifies underline)*/
+	color: #000000;
+	font-family: 'Lilita One', cursive;
+	font-size: 1em;
+}
+/*(link color when moused over)*/
+.footer a:hover {
+	color: #FEFF03;
+}
+/*(quote text styling)*/
+h2 {
+	font-family: 'Lilita One', cursive;
+	font-size: 24px;
+	color: #FFC425;
+	text-shadow: -1px 0px #000000;
 }
 
-/**
- * 1. Address box sizing set to `content-box` in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- */
 
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
+/*----------------AUDIO BOARD-----------------*/
+
+.table {
+	position: relative;
+	text-align: center;
+	color: greenyellow;
+	font-size: 0vw;
+    
 }
 
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
+.trip {text-align:center;}
 
-input[type="search"] {
-    -webkit-appearance: textfield; /* 1 */
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; /* 2 */
-    box-sizing: content-box;
+.trip img{
+  display:inline-block;
+  width:30%;
+  margin:0 1% 0 1%;
+  }
+
+.rollover {
+	cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+/*--------------background colors----------*/
+    
+.whiteBG {
+	background-color: #2F241D;
 }
 
-/**
- * Remove inner padding and border in Firefox 4+.
- */
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+.blueBG {
+	background: -webkit-linear-gradient(left, #2F241D, #E35625, #FFC425);
 }
 
-/**
- * 1. Remove default vertical scrollbar in IE 8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-
-textarea {
-    overflow: auto; /* 1 */
-    vertical-align: top; /* 2 */
+.orangeBG {
+	background: -webkit-linear-gradient(left, #2F241D, #E35625, #FFC425);
+}
+    
+/*----------------back to top button-----------------*/
+#myBtn {
+  
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #FFC425; /* Set a background color */
+  color: #2F241D; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-family: 'League Spartan', sans-serif;
+  font-size: 10px; /* Increase font size */
 }
 
-/* ==========================================================================
-   Tables
-   ========================================================================== */
+#myBtn:hover {
+  background-color:orange;
+  opacity: 0.75;   
+}
 
-/**
- * Remove most spacing between table cells.
- */
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+/*----menu dissapear when scroll---*/
+.nav-up {
+  top: -105px; 
 }
